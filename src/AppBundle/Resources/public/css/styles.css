@@ -1,20 +1,58 @@
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.container,
-.jumbotron .container {
-    max-width: 600px;
+#sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    background: #d7d7d7;
 }
 
-.todo a {
-    margin: 0 6px 6px 0;
+#sidebar p {
+    text-align: center;
 }
 
-.todo em {
-    display: inline-block;
-    margin-left: 12px;
-    float: right;
-    color: #bbb;
+#sidebar p .logo {
+    display: block;
+    padding: 20px 0;
+    font-size: 32px;
+}
+
+#sidebar p .logo:hover {
+    text-decoration: none;
+}
+
+#main {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+p.actions {
+    text-align: right;
+}
+
+p.actions a {
+    margin-left: 10px;
+}
+
+form .form-actions {
+    border-top: 1px solid #d7d7d7;
+    padding-top: 20px;
+}
+
+form .form-actions a {
+    margin-left: 10px;
+}
+
+form ul.collection {
+    border: 1px dotted #d7d7d7;
+}
+
+form ul.collection li {
+    border-top: 1px dotted #d7d7d7;
 }

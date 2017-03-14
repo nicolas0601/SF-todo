@@ -1,24 +1,28 @@
-{% extends "AppBundle::base.html.twig" %}
+{% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <div class="jumbotron">
-        <div class="container">
-            <h1>ToDoList</h1>
+    <h1>Todos list</h1>
 
-            {# Début formulaire (ajout ou modification) #}
-                {# Champ du formulaire #}
 
-                <button type="submit" class="btn btn-success">
-                    <span class="glyphicon glyphicon-plus"></span> Ajouter
-                </button>
+        {% for todo in todos %}
 
-            {# Fin formulaire #}
+            <h3> <a href="{{ path('todo_show', { 'id': todo.id }) }}">{{ todo.content }}</a></h3>
 
-        </div>
-    </div>
-    <div class="container">
+            <p> {{ todo.date|date('Y-m-d')}}</p>
 
-        {# Liste par défaut des Todos #}
 
-    </div>
+                            <a href="{{ path('todo_show', { 'id': todo.id }) }}" class="btn btn-success">show</a>
+
+                        <a href="{{ path('todo_edit', { 'id': todo.id }) }}" class="btn btn-warning" >edit</a>
+                        <a href="{{ path('todo_trashed', { 'id': todo.id }) }}" class="glyphicon glyphicon-trash" ></a>
+
+
+        {% endfor %}
+
+
+    <ul>
+        <li>
+            <a href="{{ path('todo_new') }}">Create a new todo</a>
+        </li>
+    </ul>
 {% endblock %}

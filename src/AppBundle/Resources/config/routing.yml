@@ -1,3 +1,10 @@
+
 todo_index:
-    path: /
-    defaults: { _controller: AppBundle:Todo:index }
+    path:     /
+    defaults: { _controller: "AppBundle:Todo:index" }
+    methods:  GET
+
+app_todo:
+    resource: "@AppBundle/Resources/config/routing/todo.yml"
+    prefix:   /todo
+

@@ -1,0 +1,35 @@
+
+todo_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Todo:show" }
+    methods:  GET
+
+todo_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Todo:new" }
+    methods:  [GET, POST]
+
+todo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Todo:edit" }
+    methods:  [GET, POST]
+
+todo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Todo:delete" }
+    methods:  DELETE
+
+todo_trashed:
+    path:     /{id}/trashed
+    defaults: { _controller: "AppBundle:Todo:trashed" }
+
+
+
+todo_listTrashed:
+    path: /trashed
+    defaults: { _controller: AppBundle:Todo:listTrashed }
+
+todo_restore:
+   path: /{id}/restore
+   defaults: { _controller: AppBundle:Todo:restore }
+

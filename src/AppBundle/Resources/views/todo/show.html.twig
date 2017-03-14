@@ -1,0 +1,20 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h2>Todo</h2>
+
+<h3>{{ todo.content }}</h3>
+              {#<p>Afaire</p>  {% if todo.trashed %}Yes{% else %}No{% endif %}#}
+
+
+
+
+<p>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+
+<p>
+
+
+{% endblock %}

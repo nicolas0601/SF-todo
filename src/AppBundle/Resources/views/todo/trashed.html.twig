@@ -1,0 +1,26 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Todo in the Trashed</h1>
+
+    {% for todo in todos %}
+
+        <h3> {{ todo.content }}
+
+
+            <a href="{{ path('todo_restore', { 'id': todo.id }) }}" class="glyphicon glyphicon-refresh"></a></h3>
+        <h4>Déjà fait : {% if todo.trashed %}Yes{% else %}No{% endif %}</h4>
+
+{#<p>#}
+    {#{{ form_start(delete_form) }}#}
+    {#<input type="submit" value="Delete">#}
+    {#{{ form_end(delete_form) }}#}
+
+{#<p>#}
+
+
+    {% endfor %}
+
+
+
+{% endblock %}

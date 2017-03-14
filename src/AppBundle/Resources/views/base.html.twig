@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>ToDoList</title>
+    <title>{% block title 'Blog' %}</title>
 
-    <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/app/css/styles.css') }}" rel="stylesheet">
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/app/css/styles.css') }}" rel="stylesheet">
+    {% endblock stylesheets %}
 
     <!--[if lt IE 9]>
     <script src="{{ asset('bundles/app/js/html5shiv.min.js') }}"></script>
@@ -23,9 +23,57 @@
 
 <body>
 
-    {% block body %}{% endblock %}
+<div id="sidebar">
+    <p><a href="{{ path('todo_index') }}" class="logo">
+            SF TODO
+        </a></p>
 
+
+    <p><a href=" {{ path('todo_new') }}" class="btn btn-success">New Todo</a>
+    </p>
+
+    {#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<input type="submit" value="Create" />#}
+    {#{{ form_end(form) }}#}
+
+
+    {{ render(controller('AppBundle:Todo:listAll')) }}
+
+</div>
+<div id="main" class="container-fluid">
+    {% include "AppBundle:Layout:flashes.html.twig" %}
+
+
+    <div class="page-header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('todo_index') }}">Home</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('todo_listTrashed') }}">Trashed</a></li>
+
+                class="nav navbar-nav navbar-right">
+                    <li><a href="#">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+
+</div>
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
+{% endblock javascripts %}
 
 </body>
 </html>

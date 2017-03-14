@@ -1,0 +1,13 @@
+<div class="logo"> <h3> Todo list</h3></div>
+
+
+{% for todo in todos %}
+
+    <p><a href="{{ path('todo_show', { 'id': todo.id }) }}">{{ todo.content }}</a>
+    </p>
+
+
+
+
+{% endfor %}
+
